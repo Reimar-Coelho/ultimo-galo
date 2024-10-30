@@ -22,10 +22,13 @@ public class TimerCtrl : MonoBehaviour
         {
             time_remaining -= Time.deltaTime;
             timer_linear_image.fillAmount = time_remaining / max_time;
-            //tempo em minutos e segundos
             int minutes = Mathf.FloorToInt(time_remaining / 60);
             int seconds = Mathf.FloorToInt(time_remaining % 60);
             text_timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            if (time_remaining < 1)
+            {
+                text_timer.text = "0:00";
+            }
         }
         else
         {
