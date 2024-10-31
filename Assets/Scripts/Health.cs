@@ -8,6 +8,18 @@ public class Health : MonoBehaviour
     private float _currentHealth;
     [SerializeField]
     private float _maximumHealth;
+    [SerializeField]
+    FloatingHealthBar _healthBar;
+
+    private void Awake()
+    {
+        _healthBar = GetComponentInChildren<FloatingHealthBar>();
+    }
+
+    private void Start()
+    {
+        _healthBar.UpdateHealthBar(_currentHealth, _maximumHealth);
+    }
 
     public float RemainingHealthPercentage
     {
@@ -24,6 +36,7 @@ public class Health : MonoBehaviour
             return;
         }
         _currentHealth -= damageAmount;
+        _healthBar.UpdateHealthBar(_currentHealth, _maximumHealth);
         if (_currentHealth < 0)
         {
             _currentHealth = 0;

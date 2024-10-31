@@ -1,7 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     [SerializeField]
     private float _damageAmount;
@@ -10,11 +11,9 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        // Verifica se o objeto em colisão é o jogador
-        var player = collision.gameObject.GetComponent<Player>();
         var healthController = collision.gameObject.GetComponent<Health>();
 
-        if (player != null && healthController != null && healthController.RemainingHealthPercentage > 0)
+        if (healthController != null && healthController.RemainingHealthPercentage > 0)
         {
             _isInCollision = true; // Marca que o personagem está em colisão
 

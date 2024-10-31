@@ -1,19 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public float movSpeed;
-    float speedX, speedY;
-    Rigidbody2D rb;
-    SpriteRenderer spriteRenderer;
+    private float speedX, speedY;
+    private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+    private GameObject healthBar; // Referência ao GameObject HealthBar
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Busca o GameObject "HealthBar" no Canvas do jogador
+        healthBar = transform.Find("Canvas/HealthBar")?.gameObject;
+
+        // Desabilita o HealthBar se estiver na cena "SampleScene"
+        if (SceneManager.GetActiveScene().name == "SampleScene" && healthBar != null)
+        {
+            healthBar.SetActive(false);
+        }
     }
 
     // Update is called once per frame

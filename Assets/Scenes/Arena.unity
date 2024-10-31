@@ -521,6 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHealth: 100
   _maximumHealth: 100
+  _healthBar: {fileID: 0}
 --- !u!1001 &1958167171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -585,7 +586,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: galo
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5775475146726234598, guid: 0d2aa3ac80c9cac439294d4c978481db, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775475146726234598, guid: 0d2aa3ac80c9cac439294d4c978481db, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4721968352221014920, guid: 0d2aa3ac80c9cac439294d4c978481db, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
