@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 7394535561646826453}
   - component: {fileID: 1234853351640637162}
   - component: {fileID: -7857709236033135525}
+  - component: {fileID: 6766073550782005211}
   m_Layer: 0
   m_Name: Inimigo
   m_TagString: Untagged
@@ -263,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a094a4af38757fd42848eafac1c2e73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAmount: 10
+  _damageAmount: 30
 --- !u!61 &1234853351640637162
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -296,7 +297,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010591507, y: -0.4819088}
+  m_Offset: {x: -0.010591507, y: 0.00022554398}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -307,7 +308,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6822586, y: 0.41747284}
+  m_Size: {x: 0.6822586, y: 1.3817415}
   m_EdgeRadius: 0
 --- !u!114 &-7857709236033135525
 MonoBehaviour:
@@ -324,6 +325,46 @@ MonoBehaviour:
   _currentHealth: 20
   _maximumHealth: 20
   _healthBar: {fileID: 0}
+  Ondied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6766073550782005211}
+        m_TargetAssemblyTypeName: EnemyCollectableDrop, Assembly-CSharp
+        m_MethodName: RandomlyDropCollectable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -7857709236033135525}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Dead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6766073550782005211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702156091431649497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e403f4d09a2f5143ac4aec088a6c52e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chanceOfCollectableDrop: 0.3
 --- !u!1 &2643188351638797934
 GameObject:
   m_ObjectHideFlags: 0

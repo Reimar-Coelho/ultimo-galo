@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class Health : MonoBehaviour
         }
     }
 
+    public UnityEvent Ondied;
+
     public void TakeDamage(float damageAmount)
     {
         if (_currentHealth == 0)
@@ -41,6 +44,11 @@ public class Health : MonoBehaviour
         {
             _currentHealth = 0;
         }
+
+        if (_currentHealth == 0 )
+        {
+            Ondied.Invoke();
+        }
     }
 
     public void AddHealth(float amountToAdd)
@@ -51,10 +59,15 @@ public class Health : MonoBehaviour
         }
 
         _currentHealth += amountToAdd;
+        _healthBar.UpdateHealthBar(_currentHealth, _maximumHealth);
 
         if (_currentHealth > _maximumHealth)
         {
             _currentHealth=_maximumHealth;
         }
+    }
+    public void Dead()
+    {
+        Destroy(gameObject);
     }
 }
