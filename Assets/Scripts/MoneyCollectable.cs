@@ -9,6 +9,6 @@ public class MoneyCollectable : MonoBehaviour, ICollectableBehaviour
 
     public void OnCollected(GameObject player)
     {
-        return;
+        Money.totalMoney += 1;
     }
 }
