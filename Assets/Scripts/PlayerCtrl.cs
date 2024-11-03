@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    private Animator _animator;
     public float movSpeed;
     private float speedX, speedY;
     private Rigidbody2D rb;
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
         {
             healthBar.SetActive(false);
         }
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -43,5 +45,7 @@ public class Player : MonoBehaviour
         {
             spriteRenderer.flipX = false; // Virado para a esquerda
         }
+        _animator.SetBool(name:"IsWalking", value:speedX != 0 || speedY !=0);
+        
     }
 }
